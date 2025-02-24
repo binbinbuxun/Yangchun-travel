@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春湾风景区</title>
+    <style>
+        body, html {
+            font-family: '微软雅黑', 'SimHei', 'Helvetica Neue';
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 15px 200px;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 50px;
+        }
+
+        .buttons-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-button {
+            margin-left: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-button {
+            margin-left: 10px;
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #000;
+            color: white;
+            font-size: large;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a {
+            color: #000;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 18px;
+        }
+
+        .nav a:hover {
+            color: #ccc;
+        }
+
+        .content {
+            padding: 20px 200px;
+            background-color: #fff;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+        }
+
+        .info-section {
+            display: flex;
+            gap: 20px;
+        }
+
+        .info-card {
+            flex: 0.3;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .carousel-container {
+            flex: 3;
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .rating img {
+            width: 20px;
+            margin-right: 5px;
+        }
+
+        .ticket-button {
+            display: block;
+            background-color: #37b614;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .recommend-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: 20px;
+        }
+
+        .recommend-card {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .recommend-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .map-container {
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .friendly-links {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .friendly-links a {
+            color: #000;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px 10px;
+        }
+
+        footer {
+            background-color: #525252;
+            color: #fff;
+            padding: 30px;
+            text-align: left;
+        }
+
+        .social-icons img {
+            width: 30px;
+            margin-left: 10px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=your_amap_key"></script>
+</head>
+<body>
+    <!-- 顶部栏 -->
+    <header>
+        <div class="logo-container">
+            <img src="img/logo.png" alt="logo">
+        </div>
+        <nav class="nav">
+            <a href="index.html">首页</a>
+            <a href="situation.html">阳春概况</a>
+            <a href="view.html">特色景点</a>
+            <a href="strategy.html">游玩攻略</a>
+            <a href="food.html">特产美食</a>
+            <div class="buttons-container">
+                <button class="search-button">
+                    <img src="img/search.png" alt="search">
+                </button>
+                <a href="loginin.html">
+                    <button class="login-button">登录</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 内容 -->
+    <div class="content">
+        <div class="section">
+            <h2 class="section-title">春湾风景区</h2>
+            <div class="rating">
+                <img src="img/star.png" alt="star">
+                <img src="img/star.png" alt="star">
+                <img src="img/star.png" alt="star">
+                <img src="img/star.png" alt="star">
+                <img src="img/star.png" alt="star">
+                <span>4.8 / 101人评分</span>
+            </div>
+            <div class="info-section">
+                <div class="info-card">
+                    <div class="info-title">相关信息</div>
+                    <p>春湾风景区位于广东省阳江市春湾镇，是一个集自然景观
+                        和人文景观于一体的旅游胜地。这里有丰富的自然景观，
+                        包括通真岩、龙宫岩、朝天马、金鸡岭等，以及人工打造的
+                        石拱桥温泉度假区等。春湾湖畔的“通天蜡烛”尤为引人注目，
+                        山峰奇秀，湖山相映，形成了独特的自然美景。
+                    </p>
+                    <p>游览时间：大约 3 小时<br>
+                        开放时间：8:00-17:00，17:00停止进入。<br>
+                        官方电话：0662-6157688
+                    </p>
+                    <p>门票：￥30/人，学生5折优惠<br>免票政策：身高1.2米(含)以下儿童、70周岁(含)以上老人、现役军人、残疾人免费</p>
+                    <a href="https://you.ctrip.com/sight/yangchun961/23027.html" class="ticket-button">购票低至 ￥27.00</a>
+                </div>
+                <div class="carousel-container">
+                    <div class="carousel-slide" id="carousel-slide">
+                        <img src="img/景区/春湾.png" alt="石林">
+                        <img src="img/景区/龙宫岩.jpg" alt="龙宫岩">
+                        <img src="img/景区/景区活动.jpg" alt="活动">
+                    </div>
+                    <div class="carousel-nav">
+                        <button id="prevBtn">&#10094;</button>
+                        <button id="nextBtn">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">体验春湾风景区的最佳方式</h2>
+            <div class="recommend-container">
+                <div class="recommend-card">
+                    <img src="img/景区/石林.jpg" alt="推荐1">
+                    <p>典型的石灰岩溶洞，由六座石山峰环绕而成，拥有形态各异的怪石。</p>
+                </div>
+                <div class="recommend-card">
+                    <img src="img/景区/龙宫岩.jpg" alt="推荐2">
+                    <p>洞内玲珑剔透。</p>
+                </div>
+                <div class="recommend-card">
+                    <img src="img/景区/景区活动.jpg" alt="推荐3">
+                    <p>领略春湾风景区壮丽景色的同时，享受本地美食。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">游玩信息和建议</h2>
+            <div class="info-card">
+                <p>
+                    基本信息
+                </p>
+                <p>
+                    <li>开放时间：全年 08:00-17:30开放</li>
+                    <li>位置：阳春市春湾镇东郊春湾风景区</li>
+                    <li>其余门票价格：小火车25元/人</li>
+                    <li>免票政策：6周岁(含)以下及身高1.2米(含)以下儿童、70周岁(含)以上老人、现役军人、残疾人免费</li>
+                </p>
+
+                <p>
+                    主要景点
+                </p>
+                <p>
+                    <li>春湾石林：典型的石灰岩溶洞，由六座石山峰环绕而成，拥有形态各异的怪石</li>
+                    <li>龙岩宫：洞内玲珑剔透，岩洞分为四段，洞内常年有流水，在五彩斑斓灯光的照耀下，洞内的奇石发出鲜艳夺目的色彩</li>
+                    <li>玻璃栈道：广东第一条喀斯特地貌观光玻璃栈道，栈道距离地面120米，长约60米，滑道长340米，钢木栈道长约560米，全透明栈道给人带来的冲击感极强</li>
+                    <li>通真岩、慈云岩：历史悠久的宗教文化遗迹，洞内钟乳石形态各异，与佛教文化相融合</li>
+                </p>
+
+                <p>
+                    游玩建议
+                </p>
+                <p>
+                    <li>春湾风景区内的春湾石林是摄影爱好者的天堂，可以拍摄各种奇特的石头照片</li>
+                    <li>龙岩宫内部的灯光和水流设计非常独特，值得仔细参观</li>
+                    <li>玻璃栈道提供了俯瞰整个风景区的绝佳视角，可以欣赏到壮丽的自然风光</li>
+                    <li>徒步：通真岩和龙宫岩的徒步路线非常适合喜爱自然的游客。</li>
+                    <li>游泳：在春湾湖中游泳是一种非常放松的体验。</li>
+                    <li>攀岩：朝天马和金鸡岭是攀岩爱好者的好去处。</li>
+                <p>
+                    注意事项
+                </p>
+                <p>
+                    请注意，以上信息可能会有所变动，建议出行前向官方网站或客服咨询最新的游玩信息。<br>
+                    在游览过程中，请遵守景区规定，不要乱扔垃圾，保护自然环境。同时，注意安全，尤其是在攀爬石峰时，要穿着合适的鞋子，避免滑倒受伤。
+                    如果遇到恶劣天气，请及时调整行程，确保安全。
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">地址</h2>
+            <div class="info-card">
+                <p><strong>广东省阳江市阳春市春湾镇春湾风景区</strong></p>
+                <p>
+                    春湾风景区距离阳江市区大约39公里，游客可以通过公路前往。具体的交通路线和时间表可能会有所变化，建议出行前查询最新的交通信息。
+                </p>
+                <p>
+                    春湾风景区非常适合自驾游，这里有免费的停车场，方便游客停车。无论你是摄影爱好者，还是寻求心灵宁静的旅者，或是喜欢探险的冒险家
+                    ，春湾风景区都能满足你的需求，让你在这里留下难忘的回忆。不过，为了确保你的旅行顺利，建议出行前再次确认景点的最新信息，以免错
+                    过任何精彩的部分。
+                </p>
+                <div id="map" class="map-container"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">友情链接</h2>
+            <div class="friendly-links">
+                <a href="http://www.yccwfjq.com/" target="_blank">春湾风景区官网</a>
+                <a href="http://www.yangchun.gov.cn/" target="_blank">阳春政府网</a>
+                <a href="https://you.ctrip.com/sight/yangchun961/23027.html" target="_blank">携程旅行</a>
+                <a href="https://www.mafengwo.cn/" target="_blank">马蜂窝</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部 -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p>阳江市阳春市南新大道6号<br>旅客服务电话：(+86)955231; 旅客咨询邮箱:lb@ch.com <br>合作邮箱：yangchun@travel.com</p>
+                <p style="color: #7f7f7f;">&copy; 2024 阳春文旅(Yangchun Travel) 保留所有权利。</p>
+            </div>
+            <div class="social-icons">
+                <p>关注我们：</p>
+                <img src="img/wechat.png" alt="wechat">
+                <img src="img/weibo.png" alt="weibo">
+                <img src="img/tiktok.png" alt="tiktok">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 轮播图
+        const carouselSlide = document.getElementById('carousel-slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let counter = 0;
+        const size = carouselSlide.clientWidth;
+
+        nextBtn.addEventListener('click', () => {
+            if (counter >= carouselSlide.childElementCount - 1) {
+                counter = -1;
+            }
+            carouselSlide.style.transform = 'translateX(' + (-size * (++counter)) + 'px)';
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (counter <= 0) {
+                counter = carouselSlide.childElementCount;
+            }
+            carouselSlide.style.transform = 'translateX(' + (-size * (--counter)) + 'px)';
+        });
+
+        // 初始化地图
+        var map = new AMap.Map('map', {
+            resizeEnable: true,
+            zoom: 15,
+            center: [111.95257,22.440798] 
+        });
+
+        var marker = new AMap.Marker({
+            position: [111.95257,22.440798],
+            title: '春湾风景区'
+        });
+        map.add(marker);
+        
+        map.plugin(["AMap.ToolBar"], function () {
+          map.addControl(new AMap.ToolBar()); 
+        });
+        
+        map.plugin(["AMap.Scale"], function () {
+          map.addControl(new AMap.Scale()); 
+        });
+    </script>
+</body>
+</html>

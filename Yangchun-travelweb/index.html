@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阳春文旅</title>
+    <style>
+        body, html {
+            font-family: '微软雅黑', 'SimHei', 'Helvetica Neue';
+            margin: 0;  
+            padding: 0;  
+        }
+        /* 顶部栏 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 5px 200px 10px 200px;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .buttons-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .search-button {
+            margin-left: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #a8a8a8;
+        }
+
+        .login-button {
+            margin-left: 10px;
+            width: 100px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: #000000;
+            color: white;
+            font-size: large;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a {
+            color: #000;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 20px;
+        }
+
+        .nav a:hover {
+            color: #ccc;
+        }
+
+
+        /* 主页轮播 */
+        .slider-container {
+            height: 730px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border: none;
+        }
+
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slider-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.06);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* 轮播指示器 */
+        .dots-container {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 8px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .active-dot {
+            background-color: #696969;
+        }
+
+        /* 分割线 */
+        .custom-hr {
+            flex: 1;
+            border: 1px;
+            height: 1px;
+            width: 1500px;
+            margin-top: 120px;
+            margin-bottom: 50px;
+            background: #bbb;
+        }
+
+        /* 内容页 */
+        .service-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 10px;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 100px; 
+        }
+        .p-title{
+            text-align: center;
+            margin-top:80px;
+            margin-bottom:50px;
+            font-size:50px;
+            color: #000000;
+        }
+        .p-content{
+            margin-top: 40px;
+            font-size: 18px;
+            color: #707070;
+            line-height: 1.6;
+        }
+        .seemore1-button{
+            margin-top: 80px;
+            margin-left: 150px;
+            background-color: rgba(255, 255, 255, 0);
+            color: #000000;
+            font-size: 13px;
+            border: none;
+            text-decoration-line:underline;
+            text-underline-offset:1em;
+            text-decoration-thickness: 2px;
+            cursor: pointer;
+        }
+        .seemore2-button{
+            justify-content: center; 
+            align-items: center; 
+            margin-top: 40px;
+            margin-bottom: 50px;
+            background-color: rgba(255, 255, 255, 0);
+            color: #df4242;
+            font-size: 18px;
+            border: none;
+            text-decoration-line:underline;
+            text-underline-offset:1em;
+            cursor: pointer;
+        }
+
+        /* 末尾栏 */
+        footer {
+            background-color: #525252;
+            color: #fff;
+            align-items: flex-end;
+            justify-content: space-between;
+            text-align: left;
+            padding: 30px;
+        }
+        .social-icons {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部栏 -->
+    <header>
+        <div class="logo-container">
+            <img src="img/logo.png" alt="logo">
+        </div>
+        <nav class="nav">
+            <a href="index.html" style="color: #c50000;">首页</a>
+            <a href="situation.html">阳春概况</a>
+            <a href="view.html">特色景点</a>
+            <a href="strategy.html">游玩攻略</a>
+            <a href="food.html">特产美食</a>
+            <div class="buttons-container">
+                <button class="search-button">
+                    <img src="img/search.png" alt="search">
+                </button>
+                <a href="loginin.html">
+                <button class="login-button">登录</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- 首页轮播开始 -->
+    <div class="slider-container">
+        <div class="image-slider">
+            <div class="slider-image active">
+                <img src="img/home1.png" alt="home1">
+            </div>
+            <div class="slider-image">
+                <img src="img/home2.png" alt="home2">
+            </div>
+            <div class="slider-image">
+                <img src="img/home3.png" alt="home3">
+            </div>
+            <div class="slider-image">
+                <img src="img/home4.png" alt="home4">
+            </div>
+            <div class="slider-image">
+                <img src="img/home5.png" alt="home5">
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- 圆点导航 -->
+    <div class="dots-container" style="text-align: center; margin-top: 10px;">
+        <span class="dot" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+    <!-- 精彩活动开始 -->
+    <div class="service-container" style="text-align: left;margin-left: 150px;margin-top: 80px;">
+        <div>
+            <p style="font-size: 20px;margin-bottom: -15px;">查看更多阳春精彩<br>特辑</p>
+            <button class="seemore1-button">更多动态</button>
+        </div>
+        <div>
+            <p style="font-size: 20px;margin-bottom: -15px;">今夏，在阳春获得同款<br>夏日大片</p>
+            <button class="seemore1-button">了解更多</button>
+        </div>
+        <div>
+            <p style="font-size: 20px;margin-bottom: -15px;">山海联动，阳春与海陵岛<br>携手合作</p>
+            <button class="seemore1-button">了解更多</button>
+        </div>
+        <div>
+            <p style="font-size: 20px;margin-bottom: -15px;">阳春传统风味美食你<br>了解多少？</p>
+            <button class="seemore1-button">了解更多</button>
+        </div>
+    </div>
+
+    <!-- 分割线开始 -->
+    <hr class="custom-hr">
+
+    <!-- 内容页开始 -->
+    <nav>
+        <div>
+            <p class="p-title">广东阳春</p>
+        </div>
+        <div class="service-container">
+            <div>
+                <img src="img/page1.jpg" alt="page1">
+                <p class="p-content">阳春，意取“漠水之阳，四季如春”。这里旅游资源丰富，有中国大陆最南端的喀斯特地貌区、粤西最大的高山草原和历史悠久的民俗文化。<br>
+                    2007年被授予“中国优秀旅游城市”称号，并拥有“国家地质公园”“广东省戏剧之乡”“中国马水桔之乡”“中国春砂仁之乡”<br>
+                    “中国孔雀石之乡”“中国蚕桑之乡”等诸多美誉。<br>
+                </p>
+                <button class="seemore2-button">了解更多</button>
+            </div>
+        </div>
+
+        <div>
+            <p class="p-title">
+                风景名胜
+            </p>
+        </div>
+
+        <div class="service-container">
+            <div>
+                <img src="img/view1(1).png" alt="view1">
+                <p style="font-size: 24px;margin-bottom: -15px;">春湾风景区</p>
+                <p class="p-content">春湾风景区，石林峰林，溶洞奇观，自然<br>之美尽显眼前，领略大自然鬼斧神工的魅力。</p>
+                <button class="seemore2-button">了解更多</button>
+            </div>
+            <div>
+                <img src="img/view2(1).png" alt="view2">
+                <p style="font-size: 24px;margin-bottom: -15px;">马兰风光</p>
+                <p class="p-content">马兰风光，山水相依，田园风光。置身其中，<br>感受大自然的怀抱，让心灵与身体彻底放松。</p>
+                <button class="seemore2-button">了解更多</button>
+            </div>
+            <div>
+                <img src="img/view3(1).png" alt="view3">
+                <p style="font-size: 24px;margin-bottom: -15px;">鸡笼顶大草原</p>
+                <p class="p-content">鸡笼顶大草原，广袤草地，牛羊风吹<br>草低，青翠蓝天，放飞心灵，草原文化乐园。</p>
+                <button class="seemore2-button">了解更多</button>
+            </div>
+        </div>
+
+        <div>
+            <p class="p-title">
+                旅客服务
+            </p>
+        </div>
+
+        <div class="service-container">
+            <div>
+                <img src="img/book.png" alt="book">
+                <p style="font-size: 20px;margin-bottom: -15px;">游记攻略</p>
+            </div>
+            <div>
+                <img src="img/ticket.png" alt="ticket">
+                <p style="font-size: 20px;margin-bottom: -15px;">票务信息</p>
+            </div>
+            <div>
+                <img src="img/phone.png" alt="phone">
+                <p style="font-size: 20px;margin-bottom: -15px;">常用电话</p>
+            </div>
+            <div>
+                <img src="img/map.png" alt="map">
+                <p style="font-size: 20px;margin-bottom: -15px;">景区地图</p>
+            </div>
+            <div>
+                <img src="img/traffic.png" alt="traffic">
+                <p style="font-size: 20px;margin-bottom: -15px;">周边交通</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 底部开始 -->
+    <footer>
+        <div class="social-icons">
+            <a href="#"><img src="img/Tiktok.png" alt="Tiktok"></a>
+            <a href="#"><img src="img/Wechat.png" alt="Wechat"></a>
+            <a href="#"><img src="img/Weibo.png" alt="Weibo"></a>
+        </div>
+        <p> 阳江市阳春市南新大道6号<br>旅客服务电话：(+86)955231; 旅客咨询邮箱:lb@ch.com <br>合作邮箱：yangchun@travel.com</p>
+        <p style="color: #7f7f7f;">&copy; 2024 阳春文旅(Yangchun Travel) 保留所有权利。</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slider-image");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n >= slides.length) { slideIndex = 0; }
+            if (n < 0) { slideIndex = slides.length - 1; }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.opacity = "0";
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active-dot", "");
+            }
+            
+            slides[slideIndex].style.opacity = "1";
+            dots[slideIndex].className += " active-dot";
+        }
+        
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            showSlides(slideIndex);
+        
+            setInterval(function() {
+                changeSlide(1);
+            }, 5000);
+        });
+        </script>        
+</body>
+</html>

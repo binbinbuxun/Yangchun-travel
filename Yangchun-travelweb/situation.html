@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阳春概述</title>
+
+    <style>
+        body, html {
+            font-family: '微软雅黑', 'SimHei', 'Helvetica Neue';
+            margin: 0;  
+            padding: 0;  
+        }
+        /* 顶部栏 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 5px 200px 10px 200px;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .buttons-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .search-button {
+            margin-left: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #a8a8a8;
+        }
+
+        .login-button {
+            margin-left: 10px;
+            width: 100px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: #000000;
+            color: white;
+            font-size: large;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a {
+            color: #000;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 20px;
+        }
+
+        .nav a:hover {
+            color: #ccc;
+        }
+
+        /* 面包屑导航 */
+        .nav-breadcrumb {  
+            margin-top: 50px;
+            margin-left: 100px; 
+        }
+        .breadcrumb {  
+        list-style: none;  
+        padding: 0;  
+        margin: auto;  
+        display: flex;  
+        align-items: center;  
+        }  
+        .breadcrumb-item {  
+            display: inline-block;  
+            position: relative;  
+            padding-right: 10px;  
+            margin-right: 5px;  
+        }  
+        .breadcrumb-item::after {  
+            content: ">";  
+            position: absolute;  
+            right: 0;  
+            top: 50%;  
+            transform: translateY(-50%);  
+        }  
+        .breadcrumb-item:last-child::after {  
+            content: "";  
+        }  
+        .breadcrumb a {  
+            text-decoration: none;  
+            color: #7f7f7f;  
+        }
+
+        /* 分割线 */
+        .custom-hr {
+            flex: 1;
+            border: 1px;
+            height: 1px;
+            width: 1500px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            background: #bbb;
+        }
+
+        /* 视频容器 */
+        .video-container {
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 100px;
+        }
+
+        .video-container video {
+            width: 100%; 
+            max-width: 1200px; 
+            height: auto; 
+            background-color: #575757;
+        }
+
+
+        /* 文本容器 */
+        .text-container {
+            display: flex;   
+            align-items: flex-start;
+            margin-bottom: 60px;
+        } 
+        .text-content {
+            flex: 1;
+            margin-left: 100px;
+            margin-right: 20px; /* 设置图片与文本之间的间距 */
+        }
+
+        /* 正文图片 */
+        .image-container {  
+            flex: 0 0 auto;
+            margin-left: 50px;
+        }  
+        .text-image {  
+            width: 500px;
+            height: 650px;
+            margin-top: 40px;
+            margin-right: 100px;
+        }
+
+        /* 正文文本 */
+        .h1-title{
+            font-weight: normal;
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            font-size:54px;
+        }
+        .h2-title{
+            font-weight: normal;
+            text-align: left;
+            margin-left: auto;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+        .p-text{
+            margin: auto;
+            font-size: 18px;
+            color: #7f7f7f;
+            text-indent: 2em;
+            margin-bottom: 60px;
+            line-height: 2;
+        }
+
+        /* 末尾栏 */
+        footer {
+            background-color: #525252;
+            color: #fff;
+            align-items: flex-end;
+            justify-content: space-between;
+            text-align: left;
+            padding: 30px;
+        }
+        .social-icons {
+            float: right;
+        }
+    </style>
+
+    <body>
+    <!-- 顶部栏 -->
+    <header>
+        <div class="logo-container">
+            <img src="img/logo.png" alt="logo">
+        </div>
+        <nav class="nav">
+            <a href="index.html">首页</a>
+            <a href="situation.html" style="color: #c50000;">阳春概况</a>
+            <a href="view.html">特色景点</a>
+            <a href="strategy.html">游玩攻略</a>
+            <a href="food.html">特产美食</a>
+            <div class="buttons-container">
+                <button class="search-button">
+                    <img src="img/search.png" alt="search">
+                </button>
+                <a href="loginin.html">
+                    <button class="login-button">登录</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+        <!-- 标题图片开始 -->
+        <div class="content-image">
+            <img src="img/culture1.png" alt="culture1" style="width: 100%;">
+        </div>
+
+        <!-- 面包屑导航开始 -->
+        <nav class="nav-breadcrumb">  
+            <ul class="breadcrumb">  
+                <li class="breadcrumb-item"><a href="#">首页</a></li>  
+                <li class="breadcrumb-item">阳春概况</li>  
+            </ul>  
+        </nav>
+
+        <hr class="custom-hr">
+
+        <!-- 视频开始 -->
+        <div class="video-container">
+            <video loop="loop" controls="controls" poster="images\t3.jpg">
+                <source src="img/video/阳春地名记.mp4" type="video/mp4">
+            </video>
+        </div>        
+
+        <!-- 正文开始 -->
+         <div>
+            <div class="text-container">
+                <div class="text-content">
+                    <h2 class="h2-title">阳春概述</h2>
+                    <p class="p-text">
+                            阳春，意取“漠水之阳，四季如春”，地处广东省西南部、漠阳江中上游，是广东省面积第三大县（市）和中国优秀旅游城市、中国国家地质公园、中国春砂仁之乡、国家卫生城市、广东省文明城市、广东省园林城市等。
+                        全市总面积4037.8平方公里，其中耕地总面积67.4万亩；户籍总人口122.1925万人，常住总人口88.24万人；下辖15个镇、2个街道办事处，309个村委会、42个社区。
+                            获得中国优秀旅游城市、中国国家地质公园、中国马水桔之乡、中国春砂仁之乡、国家卫生城市、岭南生态康养胜地、广东省卫生城市、广东省文明城市、广东省园林城市、
+                        广东省教育强市等20多项荣誉称号。
+                    </p>
+                    <h2 class="h2-title">历史溯源</h2>
+                    <p class="p-text">
+                        阳春历史底蕴深厚，一万四千多年前已有古人类居住，战国时期为百越地。秦始皇二十六年（前221年）属南海郡，汉元鼎六年（111年）属高凉县；三国吴赤乌元年（238年）置莫阳县，为阳春地建县之始，至今
+                        已有一千七百多年历史；南朝梁普通四年（523年），撤销莫阳县，改设阳春郡并置阳春县；1994年5月撤县设市（县级）。阳春是广东古来文明之地，留下不少古迹和文物，有独石仔洞穴遗址、石望铁屎迳
+                        铸钱遗址、崆峒岩摩崖石刻、春湾通真岩摩崖石刻等，已被列为省级文物保护单位。阳春民俗文化丰富，有历史悠久的阳春根雕、陂面镇重阳古墟、合水镇高流河墟、石望镇梁镇南将军府炮会等非物质文化遗产。
+                    </p>
+                </div>
+                <div class="image-container">  
+                    <img src="img/culture2.jpg" alt="text-pic1" class="text-image">  
+                </div>
+            </div>
+
+            <div class="text-container" style="background-color: #f0f0f0;">
+                <div class="image-container" style="margin-left: 100px;margin-top: 50px;">  
+                    <img src="img/culture3(1).jpg" alt="text-pic2" class="text-image">  
+                </div>
+                <div class="text-content" style="margin-left: 10px;margin-right: 100px;">
+                    <h2 class="h2-title" style="margin-top: 100px;">地理位置</h2>
+                    <p class="p-text">
+                        阳春市，位于广东省的西南部，坐落于云雾山脉、天露山脉的中段与河尾山的八甲大山之间，地处漠阳江的中上游。这座由阳江市代管的县级市，总面积达到4037.8平方千米，户籍人口众多，是广东省直管县财
+                        政改革试点之一。阳春市不仅地理位置优越，还是珠三角地区与粤西地区的交通中枢，拥有三茂铁路、阳阳铁路、春罗铁路等多条铁路线，以及肇阳高速、汕湛高速、中阳高速等高速公路，交通便利，四通八达。
+                    </p>
+                    <h2 class="h2-title">自然环境</h2>
+                    <p class="p-text">
+                        阳春市的气候属于典型的亚热带季风气候，四季分明，雨水充沛，阳光充足。春季，天气渐暖，温度上升较快，降水量适中，万物复苏，生机勃勃。夏季，气温较高，但受海洋性气候影响，通常不会出现极端高温，
+                        且雨水较多，为农作物生长提供了良好的条件。秋季，天高云淡，风和日丽，气温适中，降水较少，是收获的季节。冬季，虽然气温较低，但阳光充足，少有严寒，依然保持着南国特有的温暖。
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-container" style="margin-bottom: 100px;">
+                <div class="text-content">
+                    <h2 class="h2-title">民俗文化</h2>
+                    <h3 class="h2-title" style="font-size: 28px;">趁墟</h3>
+                    <p class="p-text">
+                        趁墟是在某个特定时期里的一种传统，是定期而集的，即集市贸易。 集市贸易作为农业文明的一种古老遗俗，有着相当悠久的历史。 在广东乡镇农村通常将供应日常用品的地方称之为墟，将提供食品的地方称之为市。
+                        所谓“趁”，有赶快早到的意思，“墟”是过候即散，与“赶集”、“赶墟”意思相同。 墟日最热闹的要数另一类的小商贩， 如卖老鼠药、卖蛇药、算命、卖跌打药（有“撮把戏”兼卖跌打药）。 通常也把这些人叫做走江
+                        湖的“江湖佬”。 像小编的家乡河口便是以每月带”1，4，7“的日子为墟日，比如，11，14，17，21，24等，而邻镇，则以其它不同的日子，如”2，5，8“、"3，6，9”等，这样做生意的小商贩们，便每天忙碌着，带
+                        着商品奔向不同的市集。
+                    </p>
+                    <h3 class="h2-title" style="font-size: 28px;">贴叶玛</h3>
+                    <p class="p-text">
+                        叶玛，也叫叶贴，是广东粤西阳江阳春地区的一种汉族特色小吃。 叶妈主要由糯米粉，花生制成。部分地区选用黑芝麻和椰丝 或者绿豆和白糖作为佐料。 口味分两种，一种是甜的，一种是咸的。 甜的主要为土黄色，
+                        咸的为白色。 底部铺垫的叶子一般为大叶榕树叶，香蕉树叶。 将糯米粉加水后揉搓成面团。 可以在制作中加入糖浆。 将大面团分成小面团。 小面团碾成饼状。 将佐料加入饼状面团中， 揉搓成小面团。 使用木模
+                        板压制面团成型 放进木蒸笼， 高温蒸煮30分钟以上 在熟透的叶玛上点上可食用色素（红点） 以表示代表人们的一种美好愿望 。
+                    </p>
+                </div>
+                <div class="image-container">  
+                    <img src="img/culture4.jpg" alt="text-pic1" class="text-image">  
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部开始 -->
+        <footer>
+            <div class="social-icons">
+                <a href="www.douyin.com"><img src="img/Tiktok.png" alt="Tiktok"></a>
+                <a href="www.weixin.com"><img src="img/Wechat.png" alt="Wechat"></a>
+                <a href="www.weibo.com"><img src="img/Weibo.png" alt="Weibo"></a>
+            </div>
+            <p> 阳江市阳春市南新大道6号<br>旅客服务电话：(+86)955231; 旅客咨询邮箱:lb@ch.com <br>合作邮箱：yangchun@travel.com</p>
+            <p style="color: #7f7f7f;">&copy; 2024 阳春文旅(Yangchun Travel) 保留所有权利。</p>
+        </footer>
+    </body>

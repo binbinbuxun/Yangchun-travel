@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特产美食</title>
+    <style>
+        body, html {
+            font-family: '微软雅黑', 'SimHei', 'Helvetica Neue';
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 顶部栏 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 5px 200px 10px 200px;
+            align-items: center;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .buttons-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        .search-button {
+            margin-left: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #a8a8a8;
+        }
+        .login-button {
+            margin-left: 10px;
+            width: 100px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: #000000;
+            color: white;
+            font-size: large;
+            border: none;
+            cursor: pointer;
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+        .nav a {
+            color: #000;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 20px;
+        }
+        .nav a:hover {
+            color: #ccc;
+        }
+
+        /* 界面动画效果 */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        /* 特产美食 */
+        .text-content {
+            flex: 1;
+            margin-top: 90px;
+            margin-left: 60px;
+            margin-right: 20px; 
+        }
+        .h2-title{
+            font-family: '华文中宋';
+            font-weight: 500;
+            text-align: left;
+            margin-left: auto;
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        
+
+        .food-section {
+            padding: 50px;
+            margin-bottom: 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .food-main {
+            position: relative;
+            width: 48%;
+            margin-bottom: 20px;
+        }
+        .food-main img {
+            width: 100%;
+            display: block;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .food-main span {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+        .food-side {
+            width: 48%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .food-side .food-card {
+            position: relative;
+            width: 48%;
+            margin-bottom: 20px;
+        }
+        .food-side .food-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .food-side .food-card span {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        /* 探索更多按钮 */
+        .explore-button {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .explore-button:hover {
+            background-color: rgba(23, 161, 64, 0.9);
+        }
+
+        /* 末尾栏 */
+        footer {
+            background-color: #525252;
+            color: #fff;
+            align-items: flex-end;
+            justify-content: space-between;
+            text-align: left;
+            padding: 30px;
+        }
+        .social-icons {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部栏 -->
+    <header>
+        <div class="logo-container">
+            <img src="img/logo.png" alt="logo">
+        </div>
+        <nav class="nav">
+            <a href="index.html">首页</a>
+            <a href="situation.html">阳春概况</a>
+            <a href="view.html">特色景点</a>
+            <a href="strategy.html">游玩攻略</a>
+            <a href="food.html" style="color: #c50000;">特产美食</a>
+            <div class="buttons-container">
+                <button class="search-button">
+                    <img src="img/search.png" alt="search">
+                </button>
+                <a href="loginin.html">
+                    <button class="login-button">登录</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 标头图片开始 -->
+    <div class="content-image">
+        <img src="img/美食/标头.png" alt="food" style="width: 100%;">
+    </div>
+
+    <!-- 特产美食板块 -->
+     <div class="text-content">
+        <h2 class="h2-title">特色美食</h2>
+    </div>
+    <section class="food-section">
+        <div class="food-main fade-in">
+            <img src="img/美食/美食1.jpg" alt="风姜鸡">
+            <span>风姜鸡</span>
+        </div>
+        <div class="food-side fade-in">
+            <div class="food-card">
+                <img src="img/美食/美食2.jpg" alt="韭菜蚬肉">
+                <span>韭菜蚬肉</span>
+            </div>
+            <div class="food-card">
+                <img src="img/美食/美食3.jpg" alt="砂煲皖鱼">
+                <span>砂煲皖鱼</span>
+            </div>
+            <div class="food-card">
+                <img src="img/美食/美食4.jpg" alt="番茄夹蛋">
+                <span>番茄夹蛋</span>
+            </div>
+            <div class="food-card">
+                <img src="img/美食/美食5.jpg" alt="蒜蓉炒长尾生">
+                <button class="explore-button">探索更多>></button>
+                <span>蒜蓉炒长尾生</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-content">
+        <h2 class="h2-title">风味小吃</h2>
+    </div>
+    <section class="food-section fade-in">
+        <div class="food-main">
+            <img src="img/美食/小吃1.jpg" alt="钵仔玛">
+            <span>钵仔玛</span>
+        </div>
+        <div class="food-side fade-in">
+            <div class="food-card">
+                <img src="img/美食/小吃2.jpg" alt="叶贴">
+                <span>叶贴</span>
+            </div>
+            <div class="food-card fade-in">
+                <img src="img/美食/小吃3.jpg" alt="和胎">
+                <span>和胎</span>
+            </div>
+            <div class="food-card fade-in">
+                <img src="img/美食/小吃4.jpg" alt="水糕玛">
+                <span>水糕玛</span>
+            </div>
+            <div class="food-card fade-in">
+                <img src="img/美食/小吃5.jpg" alt="豆糠糍">
+                <button class="explore-button">探索更多>></button>
+                <span>豆糠糍</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-content">
+        <h2 class="h2-title">本地特产</h2>
+    </div>
+    <section class="food-section fade-in">
+        <div class="food-main">
+            <img src="img/美食/特产1.jpg" alt="春砂仁">
+            <span>春砂仁</span>
+        </div>
+        <div class="food-side">
+            <div class="food-card fade-in">
+                <img src="img/美食/特产2.jpg" alt="岗美毛蟹">
+                <span>岗美毛蟹</span>
+            </div>
+            <div class="food-card fade-in">
+                <img src="img/美食/特产3.jpg" alt="马水桔">
+                <span>马水桔</span>
+            </div>
+            <div class="food-card fade-in">
+                <img src="img/美食/特产4.jpg" alt="仁面果">
+                <span>仁面果</span>
+            </div>
+            <div class="food-card fade-in">
+                <img src="img/美食/特产5.jpg" alt="岗美腊鸭">
+                <button class="explore-button">探索更多>></button>
+                <span>岗美腊鸭</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部开始 -->
+    <footer>
+        <div class="social-icons">
+            <a href="#"><img src="img/Tiktok.png" alt="Tiktok"></a>
+            <a href="#"><img src="img/Wechat.png" alt="Wechat"></a>
+            <a href="#"><img src="img/Weibo.png" alt="Weibo"></a>
+        </div>
+        <p>阳江市阳春市南新大道6号<br>旅客服务电话：(+86)955231; 旅客咨询邮箱:lb@ch.com <br>合作邮箱：yangchun@travel.com</p>
+        <p style="color: #7f7f7f;">&copy; 2024 阳春文旅(Yangchun Travel) 保留所有权利。</p>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(function (element) {
+            observer.observe(element);
+        });
+    });
+</script>
+</html>

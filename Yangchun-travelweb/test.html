@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="wrapper"></div>
+</body>
+<style>
+	#wrapper{
+		width: 500px;
+		height: 500px;
+	}
+</style>
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=d116bb0291e34cdc808cc5a4bc78a2ff"></script>
+<script type="text/javascript">
+    var map = new AMap.Map('wrapper', {
+    center:[111.95257,22.440798],
+    zoom:11
+    });
+</script>
