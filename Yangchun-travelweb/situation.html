@@ -18,6 +18,21 @@
             background-color: #fff;
             padding: 5px 200px 10px 200px;
             align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header.nav-up {
+            transform: translateY(-100%);
+        }
+
+        header.nav-down {
+            transform: translateY(0);
         }
 
         .logo-container {
@@ -72,38 +87,6 @@
             color: #ccc;
         }
 
-        /* 面包屑导航 */
-        .nav-breadcrumb {  
-            margin-top: 50px;
-            margin-left: 100px; 
-        }
-        .breadcrumb {  
-        list-style: none;  
-        padding: 0;  
-        margin: auto;  
-        display: flex;  
-        align-items: center;  
-        }  
-        .breadcrumb-item {  
-            display: inline-block;  
-            position: relative;  
-            padding-right: 10px;  
-            margin-right: 5px;  
-        }  
-        .breadcrumb-item::after {  
-            content: ">";  
-            position: absolute;  
-            right: 0;  
-            top: 50%;  
-            transform: translateY(-50%);  
-        }  
-        .breadcrumb-item:last-child::after {  
-            content: "";  
-        }  
-        .breadcrumb a {  
-            text-decoration: none;  
-            color: #7f7f7f;  
-        }
 
         /* 分割线 */
         .custom-hr {
@@ -119,7 +102,7 @@
         /* 视频容器 */
         .video-container {
             text-align: center;
-            margin-top: 80px;
+            margin-top: 20px;
             margin-bottom: 100px;
         }
 
@@ -135,12 +118,15 @@
         .text-container {
             display: flex;   
             align-items: flex-start;
+            margin-top: 40px;
+            margin-left: 100px;
+            margin-right: 100px;
             margin-bottom: 60px;
         } 
         .text-content {
             flex: 1;
             margin-left: 100px;
-            margin-right: 20px; /* 设置图片与文本之间的间距 */
+            margin-right: 20px;
         }
 
         /* 正文图片 */
@@ -151,7 +137,7 @@
         .text-image {  
             width: 500px;
             height: 650px;
-            margin-top: 40px;
+            margin-top: 30px;
             margin-right: 100px;
         }
 
@@ -168,7 +154,7 @@
             text-align: left;
             margin-left: auto;
             font-size: 34px;
-            margin-bottom: 20px;
+            margin-bottom: 17px;
         }
         .p-text{
             margin: auto;
@@ -210,38 +196,25 @@
                     <img src="img/search.png" alt="search">
                 </button>
                 <a href="loginin.html">
-                    <button class="login-button">登录</button>
+                <button class="login-button">登录</button>
                 </a>
             </div>
         </nav>
     </header>
 
-        <!-- 标题图片开始 -->
-        <div class="content-image">
-            <img src="img/culture1.png" alt="culture1" style="width: 100%;">
-        </div>
-
-        <!-- 面包屑导航开始 -->
-        <nav class="nav-breadcrumb">  
-            <ul class="breadcrumb">  
-                <li class="breadcrumb-item"><a href="#">首页</a></li>  
-                <li class="breadcrumb-item">阳春概况</li>  
-            </ul>  
-        </nav>
-
-        <hr class="custom-hr">
-
-        <!-- 视频开始 -->
-        <div class="video-container">
-            <video loop="loop" controls="controls" poster="images\t3.jpg">
-                <source src="img/video/阳春地名记.mp4" type="video/mp4">
-            </video>
-        </div>        
+    <!-- 占位div，防止导航栏遮挡内容 -->
+    <div style="height: 80px;"></div>
+    
+    <!-- 标题图片开始 -->
+    <div class="content-image">
+        <img src="img/culture1.png" alt="culture1" style="width: 100%;">
+    </div>
+   
 
         <!-- 正文开始 -->
          <div>
             <div class="text-container">
-                <div class="text-content">
+                <div class="text-content" style="margin-top: 40px;">
                     <h2 class="h2-title">阳春概述</h2>
                     <p class="p-text">
                             阳春，意取“漠水之阳，四季如春”，地处广东省西南部、漠阳江中上游，是广东省面积第三大县（市）和中国优秀旅游城市、中国国家地质公园、中国春砂仁之乡、国家卫生城市、广东省文明城市、广东省园林城市等。
@@ -251,7 +224,7 @@
                     </p>
                     <h2 class="h2-title">历史溯源</h2>
                     <p class="p-text">
-                        阳春历史底蕴深厚，一万四千多年前已有古人类居住，战国时期为百越地。秦始皇二十六年（前221年）属南海郡，汉元鼎六年（111年）属高凉县；三国吴赤乌元年（238年）置莫阳县，为阳春地建县之始，至今
+                        阳春历史底蕴深厚，一万四千年前已有古人类居住，战国时期为百越地。秦始皇二十六年（前221年）属南海郡，汉元鼎六年（111年）属高凉县；三国吴赤乌元年（238年）置莫阳县，为阳春地建县之始，至今
                         已有一千七百多年历史；南朝梁普通四年（523年），撤销莫阳县，改设阳春郡并置阳春县；1994年5月撤县设市（县级）。阳春是广东古来文明之地，留下不少古迹和文物，有独石仔洞穴遗址、石望铁屎迳
                         铸钱遗址、崆峒岩摩崖石刻、春湾通真岩摩崖石刻等，已被列为省级文物保护单位。阳春民俗文化丰富，有历史悠久的阳春根雕、陂面镇重阳古墟、合水镇高流河墟、石望镇梁镇南将军府炮会等非物质文化遗产。
                     </p>
@@ -261,9 +234,10 @@
                 </div>
             </div>
 
-            <div class="text-container" style="background-color: #f0f0f0;">
-                <div class="image-container" style="margin-left: 100px;margin-top: 50px;">  
-                    <img src="img/culture3(1).jpg" alt="text-pic2" class="text-image">  
+            <div class="outer-bg" style="background-color: #f0f0f0; width: 100%;">
+              <div class="text-container" style="background: none;">
+                <div class="image-container" style="margin-left: 100px;margin-top: 50px;">
+                  <img src="img/culture3(1).jpg" alt="text-pic2" class="text-image">
                 </div>
                 <div class="text-content" style="margin-left: 10px;margin-right: 100px;">
                     <h2 class="h2-title" style="margin-top: 100px;">地理位置</h2>
@@ -276,6 +250,7 @@
                         阳春市的气候属于典型的亚热带季风气候，四季分明，雨水充沛，阳光充足。春季，天气渐暖，温度上升较快，降水量适中，万物复苏，生机勃勃。夏季，气温较高，但受海洋性气候影响，通常不会出现极端高温，
                         且雨水较多，为农作物生长提供了良好的条件。秋季，天高云淡，风和日丽，气温适中，降水较少，是收获的季节。冬季，虽然气温较低，但阳光充足，少有严寒，依然保持着南国特有的温暖。
                     </p>
+                </div>
                 </div>
             </div>
 
@@ -301,6 +276,18 @@
                 </div>
             </div>
         </div>
+
+        <!-- 视频开始 -->
+        <div class="video-container">
+            <div class="text-container">
+                <div class="text-content">
+                    <h2 class="h2-title">视频了解阳春</h2>
+                        <a href="https://tv.cctv.com/2020/07/08/VIDE3gD5A88AvSDqY6EHkv6u200708.shtml" target="_blank">
+                        <img src="img/video/video.png" alt="点击观看视频" style="margin-top:50px;width:100%;max-width:900px;cursor:pointer;">
+                        </a>
+                </div>
+            </div>
+        </div>  
         
         <!-- 底部开始 -->
         <footer>
@@ -312,4 +299,25 @@
             <p> 阳江市阳春市南新大道6号<br>旅客服务电话：(+86)955231; 旅客咨询邮箱:lb@ch.com <br>合作邮箱：yangchun@travel.com</p>
             <p style="color: #7f7f7f;">&copy; 2024 阳春文旅(Yangchun Travel) 保留所有权利。</p>
         </footer>
+
+        <script>
+            let lastScrollTop = 0;
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > 50) {
+                    // 向下滚动
+                    header.classList.remove('nav-down');
+                    header.classList.add('nav-up');
+                } else {
+                    // 向上滚动
+                    header.classList.remove('nav-up');
+                    header.classList.add('nav-down');
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }, false);
+            // 初始状态显示header
+            header.classList.add('nav-down');
+            </script>
+        </body>
     </body>

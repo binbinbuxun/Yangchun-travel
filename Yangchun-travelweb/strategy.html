@@ -18,16 +18,34 @@
             background-color: #fff;
             padding: 5px 200px 10px 200px;
             align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
+        header.nav-up {
+            transform: translateY(-100%);
+        }
+
+        header.nav-down {
+            transform: translateY(0);
+        }
+
         .logo-container {
             display: flex;
             align-items: center;
         }
+
         .buttons-container {
             display: flex;
             align-items: center;
             margin-left: 20px;
         }
+
         .search-button {
             margin-left: 10px;
             padding: 15px;
@@ -36,9 +54,11 @@
             border: none;
             cursor: pointer;
         }
+
         .search-button:hover {
             background-color: #a8a8a8;
         }
+
         .login-button {
             margin-left: 10px;
             width: 100px;
@@ -50,16 +70,19 @@
             border: none;
             cursor: pointer;
         }
+
         .nav {
             display: flex;
             align-items: center;
         }
+
         .nav a {
             color: #000;
             text-decoration: none;
             padding: 0 15px;
             font-size: 20px;
         }
+
         .nav a:hover {
             color: #ccc;
         }
@@ -71,12 +94,13 @@
             align-items: center;
             padding: 20px 0;
             margin-top: 20px;
+            margin-bottom: 50px;
         }
         .page-link {
             margin: 0 5px;
             padding: 10px 15px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 25px;
             text-decoration: none;
             color: #000;
             transition: background-color 0.3s, color 0.3s;
@@ -86,9 +110,9 @@
             color: #000;
         }
         .page-link.active {
-            background-color: #4CAF50;
+            background-color: #000000;
             color: white;
-            border: 1px solid #4CAF50;
+            border: 1px solid #000000;
         }
         .page-link:focus {
             outline: none;
@@ -116,11 +140,13 @@
             margin-bottom: 30px;
         }
         .strategy-image img {
-            width: 100%;
-            max-width: 300px;
+            width: 350px; /* 统一宽度 */
+            height: 250px; /* 统一高度 */
+            object-fit: cover; /* 保持图片比例并裁剪溢出部分 */
             border-radius: 10px;
             margin-right: 30px;
             cursor: pointer;
+            display: block;
         }
         .strategy-info {
             display: flex;
@@ -146,6 +172,50 @@
             background-color: #ddd;
             margin: 20px 0;
         }
+        /* 链接 */
+        a {
+        text-decoration: none;
+        color: inherit;
+        }
+        a:visited {
+            color: inherit;
+        }
+        a:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* 文章类别 */
+        .category-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 80px; 
+        }
+        .category-btn {
+        display: inline-block;
+        padding: 14px 30px;
+        font-size: 18px;
+        border-radius: 30px;
+        background: #fff;
+        color: #111;
+        font-weight: bold;
+        border: 2px solid #111;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s, transform 0.2s;
+        }
+        .category-btn.active,
+        .category-btn:active {
+        background: #111;
+        color: #fff;
+        border-color: #111;
+        }
+        .category-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        border-color: #111;
+        }
+        
 
         /* 末尾栏 */
         footer {
@@ -184,77 +254,187 @@
         </nav>
     </header>
 
+    <!-- 占位div，防止导航栏遮挡内容 -->
+    <div style="height: 80px;"></div>
+
     <!-- 标头图片开始 -->
     <div class="content-image">
         <img src="img/攻略/标头.png" alt="culture1" style="width: 100%;">
     </div>
 
+    <!-- 文章类别 -->
+    <div class="category-buttons">
+      <a href="#" class="category-btn active" id="playBtn">游玩</a>
+      <a href="#" class="category-btn" id="foodBtn">美食</a>
+      <a href="#" class="category-btn" id="shopBtn">购物</a>
+    </div>
+
     <!-- 内容区域开始 -->
-    <div class="content">
+    <div class="content" id="playContent">
         <!-- 游玩攻略项目1 -->
-        <div class="strategy-item fade-in">
-            <div class="strategy-image">
-                <img src="img/攻略/攻略1.jpg" alt="攻略图片">
+        <a href="https://mp.weixin.qq.com/s/PiSsoKF2i3415rTWOGg6Bg">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/攻略/攻略1.jpg" alt="攻略图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">阳春高流古墟今年开墟时间，定了！</div>
+                    <div class="strategy-date">发布时间：2025-05-26</div>
+                    <div class="strategy-subtitle">当晨雾漫过漠阳江畔，青石板上传来六百年的回响。阳春高流墟如一卷泛黄的古籍...</div>
+                    <p>作者：南方阳春</p>
+                </div>
             </div>
-            <div class="strategy-info">
-                <div class="strategy-title">【不一样的古墟】阳春市高流河古墟端午节游玩详细攻略</div>
-                <div class="strategy-date">发布时间：2024-06-11</div>
-                <div class="strategy-subtitle">端午节期间，到阳春游玩的游客以本地市民和周边...</div>
-                <p>作者：阳江话网</p>
-            </div>
-        </div>
+        </a>    
         <div class="divider"></div>
         <!-- 游玩攻略项目2 -->
-        <div class="strategy-item fade-in">
-            <div class="strategy-image">
-                <img src="img/攻略/攻略2.jpg" alt="攻略图片">
+         <a href="https://mp.weixin.qq.com/s/GxJ-t7XGdlZuZksb16KKeA">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/攻略/攻略2.jpg" alt="攻略图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">五一趣春湾，邂逅自然之美</div>
+                    <div class="strategy-date">发布时间：2025-04-21</div>
+                    <div class="strategy-subtitle">五一将至，你是否已迫不及待想要逃离城市的喧嚣...</div>
+                    <p>作者：阳春春湾石林龙宫岩景区</p>
+                </div>
             </div>
-            <div class="strategy-info">
-                <div class="strategy-title">广东“小桂林”！阳春春湾风景区详细攻略</div>
-                <div class="strategy-date">发布时间：2024-05-17</div>
-                <div class="strategy-subtitle">惊叹于大自然的鬼谷神功！</div>
-                <p>作者：阳春文旅</p>
-            </div>
-        </div>
+        </a>    
         <div class="divider"></div>
         <!-- 游玩攻略项目3 -->
-        <div class="strategy-item fade-in">
-            <div class="strategy-image">
-                <img src="img/攻略/攻略3.jpg" alt="攻略图片">
+         <a href="https://mp.weixin.qq.com/s/1iGLLwRSKVxyVeK9x6Z18w">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/攻略/攻略3.jpg" alt="攻略图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">3天假期即将上线！阳春踏青攻略准备好了</div>
+                    <div class="strategy-date">发布时间：2025-04-03</div>
+                    <div class="strategy-subtitle">临近清明3天假期即将上线！不少小伙伴已经开始制定旅游攻略了...</div>
+                    <p>作者：阳春微报</p>
+                </div>
             </div>
-            <div class="strategy-info">
-                <div class="strategy-title">感受山水画廊的魅力，阳春游玩旅行小贴士</div>
-                <div class="strategy-date">发布时间：2024-04-10</div>
-                <div class="strategy-subtitle">境内的春湾风景区是国家AAAA级景区、省级...</div>
-                <p>作者：南方阳春</p>
-            </div>
-        </div>
+        </a>    
         <div class="divider"></div>
         <!-- 游玩攻略项目4 -->
-        <div class="strategy-item fade-in">
-            <div class="strategy-image">
-                <img src="img/攻略/攻略4.jpg" alt="攻略图片">
+         <a href="https://mp.weixin.qq.com/s/tYg6xXJA4h0DzJIlDdoFcA">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/攻略/攻略4.jpg" alt="攻略图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">请到阳春过大年丨跟着阳春精品旅游路线，领略不一样的年味</div>
+                    <div class="strategy-date">发布时间：2025-01-29</div>
+                    <div class="strategy-subtitle">阳春，有奇峰幽洞、秀水明湖、苍山林海、温泉瀑布...</div>
+                    <p>作者：阳春融媒</p>
+                </div>
             </div>
-            <div class="strategy-info">
-                <div class="strategy-title">山海联动，阳春与海陵岛携手打造精品旅游线路</div>
-                <div class="strategy-date">发布时间：2024-03-15</div>
-                <div class="strategy-subtitle">阳春拥有好山好水好风光，以及深厚的文化底蕴...</div>
-                <p>作者：南方阳春</p>
-            </div>
-        </div>
         <div class="divider"></div>
         <!-- 游玩攻略项目5 -->
-        <div class="strategy-item fade-in">
-            <div class="strategy-image">
-                <img src="img/攻略/攻略5.jpg" alt="攻略图片">
+         <a href="https://mp.weixin.qq.com/s/QaZjqldn-iE6Hm-DICJQNQ">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/攻略/攻略5.jpg" alt="攻略图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">这个季节的阳春超美，好玩的都为你选好了</div>
+                    <div class="strategy-date">发布时间：2025-01-02</div>
+                    <div class="strategy-subtitle">春节假期到广东过暖冬有一座“宝藏”城市必不可错过...</div>
+                    <p>作者：广东阳江发布</p>
+                </div>
             </div>
-            <div class="strategy-info">
-                <div class="strategy-title">来阳春过大年！主持人带你游山玩水 吃遍春州</div>
-                <div class="strategy-date">发布时间：2024-02-01</div>
-                <div class="strategy-subtitle">有什么好玩好吃的呢？阳春市融媒体中心的主持人在春节...</div>
-                <p>作者：阳春融媒</p>
+        </a>    
+        <div class="divider"></div>
+    </div>
+
+    <!-- 美食攻略 -->
+    <div class="content" id="foodContent" style="display:none;">
+        <a href="https://mp.weixin.qq.com/s/YvZn98ykkDcEU6RCi_bvuA">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/美食/美食攻略1.png" alt="美食图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">阳春特色美食图鉴 | 到阳春，吃遍阳春味</div>
+                    <div class="strategy-date">发布时间：2025-04-09</div>
+                    <div class="strategy-subtitle">抵达阳春，在征服山野之余别忘了品尝阳春的美食。这篇美食图鉴带你吃遍阳春味...</div>
+                    <p>作者：阳春融媒</p>
+                </div>
             </div>
-        </div>
+        </a>    
+        <div class="divider"></div>
+        <a href="https://mp.weixin.qq.com/s/en98kOga2yCWKnwOzBlW8w">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/美食/美食攻略2.jpg" alt="美食图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">阳春村友强烈推荐的牛杂，当然要来试试水啦</div>
+                    <div class="strategy-date">发布时间：2025-03-28</div>
+                    <div class="strategy-subtitle">这家牛杂真的是很多人在推荐，之前发过两篇牛杂...</div>
+                    <p>作者：羊村干饭人</p>
+                </div>
+            </div>
+        </a>
+        <div class="divider"></div>
+        <a href="https://mp.weixin.qq.com/s/aFvtQdIpLJbpNQCG4K1qvA">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/美食/美食攻略3.jpg" alt="美食图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">吃喝在阳春|10个人里有8个人会推荐的店？</div>
+                    <div class="strategy-date">发布时间：2024-06-26</div>
+                    <div class="strategy-subtitle">当问阳春朋友阳春有什么好吃的，10个有8个会推荐...</div>
+                    <p>作者：阳春为食猫</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- 购物攻略 -->
+    <div class="content" id="shopContent" style="display:none;">
+        <a href="https://mp.weixin.qq.com/s/mmmbW2idwqe_fNP8gIq9ig">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/攻略/购物1.png" alt="购物图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">这才是520正确打开方式！中兴东湖广场请喝奶茶看电影，甜蜜不花钱</div>
+                    <div class="strategy-date">发布时间：2025-05-16</div>
+                    <div class="strategy-subtitle">情人节即将来临，你是否已经准备好了向心仪的TA表达你的爱意...</div>
+                    <p>作者：阳春中兴东湖购物广场</p>
+                </div>
+            </div>
+        </a>
+        <div class="divider"></div>
+                <a href="https://mp.weixin.qq.com/s/mFmUQ5lARw-nwrk5LPLRkw">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/攻略/购物2.jpg" alt="购物图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">「春花花&阳春冰箱贴」藏宝图更新！戳小程序冲自助机，集齐阳春文创</div>
+                    <div class="strategy-date">发布时间：2025-05-01</div>
+                    <div class="strategy-subtitle">阳春文创周边自助售卖机空降两大商圈...</div>
+                    <p>作者：阳春漠阳文旅集团</p>
+                </div>
+            </div>
+        </a>
+        <div class="divider"></div>
+        <a href="https://mp.weixin.qq.com/s/d8ADC07pdSxLPIOWISSK6A">
+            <div class="strategy-item fade-in">
+                <div class="strategy-image">
+                    <img src="img/攻略/购物3.jpg" alt="购物图片">
+                </div>
+                <div class="strategy-info">
+                    <div class="strategy-title">“年味儿”已就位！2025年阳春年货节鸣锣开市</div>
+                    <div class="strategy-date">发布时间：2025-01-21</div>
+                    <div class="strategy-subtitle">1月20日晚上，2025年阳春年货节在阳春市区东湖广场鸣锣开市，热闹非凡的场面琳琅满目的商品...</div>
+                    <p>作者：阳春融媒</p>
+                </div>
+            </div>
+        </a>
         <div class="divider"></div>
     </div>
 
@@ -290,6 +470,56 @@
             document.querySelectorAll('.fade-in').forEach(function (element) {
                 observer.observe(element);
             });
+        });
+
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                // 向下滚动
+                header.classList.remove('nav-down');
+                header.classList.add('nav-up');
+            } else {
+                // 向上滚动
+                header.classList.remove('nav-up');
+                header.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+        // 初始状态显示header
+        header.classList.add('nav-down');
+
+        // 分类切换功能
+        const playBtn = document.getElementById('playBtn');
+        const foodBtn = document.getElementById('foodBtn');
+        const shopBtn = document.getElementById('shopBtn');
+        const playContent = document.getElementById('playContent');
+        const foodContent = document.getElementById('foodContent');
+        const shopContent = document.getElementById('shopContent');
+        const btns = [playBtn, foodBtn, shopBtn];
+        const contents = [playContent, foodContent, shopContent];
+
+        playBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            btns.forEach(btn => btn.classList.remove('active'));
+            playBtn.classList.add('active');
+            contents.forEach(c => c.style.display = 'none');
+            playContent.style.display = '';
+        });
+        foodBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            btns.forEach(btn => btn.classList.remove('active'));
+            foodBtn.classList.add('active');
+            contents.forEach(c => c.style.display = 'none');
+            foodContent.style.display = '';
+        });
+        shopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            btns.forEach(btn => btn.classList.remove('active'));
+            shopBtn.classList.add('active');
+            contents.forEach(c => c.style.display = 'none');
+            shopContent.style.display = '';
         });
     </script>
 </body>

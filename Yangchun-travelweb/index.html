@@ -17,6 +17,21 @@
             background-color: #fff;
             padding: 5px 200px 10px 200px;
             align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header.nav-up {
+            transform: translateY(-100%);
+        }
+
+        header.nav-down {
+            transform: translateY(0);
         }
 
         .logo-container {
@@ -74,9 +89,12 @@
 
         /* 主页轮播 */
         .slider-container {
-            height: 730px;
+            height: 90vh;
+            width: 100vw;
             overflow: hidden;
             position: relative;
+            margin: 0;
+            padding: 0;
         }
 
         .image-slider {
@@ -100,6 +118,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
         }
 
         .active {
@@ -210,6 +229,129 @@
             cursor: pointer;
         }
 
+        /* 热门景点卡片样式 */
+        .hot-views-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 0px 0 50px 0;
+        }
+        .hot-view-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            overflow: hidden;
+            width: 400px;
+            height: 540px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 24px;
+        }
+        .hot-view-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .hot-view-card p {
+            margin: 18px 0 8px 0;
+            font-size: 22px;
+            font-weight: bold;
+            color: #222;
+            text-align: center;
+        }
+        .hot-view-card .p-content {
+            margin: 0 18px 0 18px;
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+        }
+        .hot-view-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        }
+
+        /* 当季文化活动卡片样式 */
+        .season-activity-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            margin: 150px 0 70px 0;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+        .activity-title {
+            font-size: 2.0rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #333;
+            text-align: left;
+        }
+        .activity-desc {
+            font-size: 22px;
+            color: #666;
+            text-align: left;
+        }
+
+        /* 美食专题样式优化 */
+        .service-container {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            justify-content: center;
+            margin: 150px 0 150px 0;
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+        .food-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 24px 18px 18px 18px;
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s;
+        }
+        .food-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .food-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .food-card .p-content {
+            font-size: 1rem;
+            max-width: 100%;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        .food-card .seemore2-button {
+            margin-top: auto;
+        }
+        @media (max-width: 900px) {
+            .service-container {
+                flex-direction: column;
+                margin-left: 20px;
+                margin-right: 20px;
+                gap: 24px;
+            }
+            .food-card img {
+                height: 140px;
+            }
+        }
+
         /* 末尾栏 */
         footer {
             background-color: #525252;
@@ -246,6 +388,9 @@
             </div>
         </nav>
     </header>
+
+    <!-- 占位div，防止导航栏遮挡内容 -->
+    <div style="height: 80px;"></div>
 
 
     <!-- 首页轮播开始 -->
@@ -284,19 +429,27 @@
     <div class="service-container" style="text-align: left;margin-left: 150px;margin-top: 80px;">
         <div>
             <p style="font-size: 20px;margin-bottom: -15px;">查看更多阳春精彩<br>特辑</p>
-            <button class="seemore1-button">更多动态</button>
+            <a href="strategy.html">
+                <button class="seemore1-button">了解更多</button>
+            </a>
         </div>
         <div>
             <p style="font-size: 20px;margin-bottom: -15px;">今夏，在阳春获得同款<br>夏日大片</p>
-            <button class="seemore1-button">了解更多</button>
+            <a href="strategy.html">
+                <button class="seemore1-button">了解更多</button>
+            </a>
         </div>
         <div>
-            <p style="font-size: 20px;margin-bottom: -15px;">山海联动，阳春与海陵岛<br>携手合作</p>
-            <button class="seemore1-button">了解更多</button>
+            <p style="font-size: 20px;margin-bottom: -15px;">五一趣春湾，邂逅自然<br>之美</p>
+            <a href="strategy.html">
+                <button class="seemore1-button">了解更多</button>
+            </a>
         </div>
         <div>
-            <p style="font-size: 20px;margin-bottom: -15px;">阳春传统风味美食你<br>了解多少？</p>
-            <button class="seemore1-button">了解更多</button>
+            <p style="font-size: 20px;margin-bottom: -15px;">阳春传统风味美食你了解<br>多少？</p>
+            <a href="food.html">
+                <button class="seemore1-button">了解更多</button>
+            </a>
         </div>
     </div>
 
@@ -310,81 +463,88 @@
         </div>
         <div class="service-container">
             <div>
-                <img src="img/page1.jpg" alt="page1">
-                <p class="p-content">阳春，意取“漠水之阳，四季如春”。这里旅游资源丰富，有中国大陆最南端的喀斯特地貌区、粤西最大的高山草原和历史悠久的民俗文化。<br>
-                    2007年被授予“中国优秀旅游城市”称号，并拥有“国家地质公园”“广东省戏剧之乡”“中国马水桔之乡”“中国春砂仁之乡”<br>
-                    “中国孔雀石之乡”“中国蚕桑之乡”等诸多美誉。<br>
+                <img src="img/page1.jpg" alt="page1">                <p class="p-content">阳春，意取"漠水之阳，四季如春"。这里旅游资源丰富，有中国大陆最南端的喀斯特地貌区、粤西最大的高山草原和历史悠久的民俗文化。<br>
+                    2007年被授予"中国优秀旅游城市"称号，并拥有"国家地质公园""广东省戏剧之乡""中国马水桔之乡""中国春砂仁之乡""中国孔雀石之乡""中国蚕桑之乡"等诸多美誉。<br>
                 </p>
-                <button class="seemore2-button">了解更多</button>
+                <a href="https://tv.cctv.com/2020/07/08/VIDE3gD5A88AvSDqY6EHkv6u200708.shtml" target="_blank">
+                    <button class="seemore2-button">视频了解</button>
+                </a>
             </div>
         </div>
 
         <div>
             <p class="p-title">
-                风景名胜
+                热门景点
             </p>
         </div>
 
         <div class="service-container">
-            <div>
-                <img src="img/view1(1).png" alt="view1">
-                <p style="font-size: 24px;margin-bottom: -15px;">春湾风景区</p>
-                <p class="p-content">春湾风景区，石林峰林，溶洞奇观，自然<br>之美尽显眼前，领略大自然鬼斧神工的魅力。</p>
-                <button class="seemore2-button">了解更多</button>
-            </div>
-            <div>
-                <img src="img/view2(1).png" alt="view2">
-                <p style="font-size: 24px;margin-bottom: -15px;">马兰风光</p>
-                <p class="p-content">马兰风光，山水相依，田园风光。置身其中，<br>感受大自然的怀抱，让心灵与身体彻底放松。</p>
-                <button class="seemore2-button">了解更多</button>
-            </div>
-            <div>
-                <img src="img/view3(1).png" alt="view3">
-                <p style="font-size: 24px;margin-bottom: -15px;">鸡笼顶大草原</p>
-                <p class="p-content">鸡笼顶大草原，广袤草地，牛羊风吹<br>草低，青翠蓝天，放飞心灵，草原文化乐园。</p>
-                <button class="seemore2-button">了解更多</button>
+            <div class="hot-views-container">
+                <div class="hot-view-card">
+                    <img src="img/view1(1).png" alt="view1">
+                    <p>春湾风景区</p>
+                    <div class="p-content">春湾风景区，石林峰林，溶洞奇观，自然之美尽显眼前，领略大自然鬼斧神工的魅力。</div>
+                </div>
+                <div class="hot-view-card">
+                    <img src="img/view2(1).png" alt="view2">
+                    <p>马兰风光</p>
+                    <div class="p-content">马兰风光，山水相依，田园风光。身处其中，感受大自然的怀抱，让心灵与身体彻底放松。</div>
+                </div>
+                <div class="hot-view-card">
+                    <img src="img/view3(1).png" alt="view3">
+                    <p>鸡笼顶大草原</p>
+                    <div class="p-content">鸡笼顶大草原，广袤草地，牛羊风吹草低，青翠蓝天，放飞心灵，草原文化乐园。</div>
+                </div>
             </div>
         </div>
 
-        <div>
-            <p class="p-title">
-                旅客服务
-            </p>
-        </div>
+        <section class="content-section">
+            <p class="p-title">当季活动</p>
+            <div class="season-activity-container">
+                <img src="img/activity.jpg" alt="阳春的端午节" style="width: 700px; height: 400px; object-fit: cover;">
+                <div style="display: flex; flex-direction: column; justify-content: center; padding: 24px 0; flex: 1;">
+                    <div class="activity-title">端午节龙舟赛</div>
+                    <div class="activity-desc">来阳春，观看精彩的端午赛龙舟，体验阳春的乡土风情。</div>
+                </div>
+            </div>
+        </section>
 
-        <div class="service-container">
-            <div>
-                <img src="img/book.png" alt="book">
-                <p style="font-size: 20px;margin-bottom: -15px;">游记攻略</p>
+
+        <!-- 美食专题开始 -->
+        <section class="content-section">
+            <p class="p-title" style="margin-top:170px;">在阳春，吃什么</p>
+            <div class="service-container">
+                <div class="food-card">
+                    <img src="img/美食/小吃1.jpg" alt="阳春钵仔玛">
+                    <h3>地道小吃：钵仔玛</h3>
+                    <p class="p-content">品尝阳春街头巷尾的经典小吃钵仔玛。</p>
+                    <a href="food.html" class="seemore2-button">更多小吃</a>
+                </div>
+                <div class="food-card">
+                    <img src="img/美食/特产3.jpg" alt="阳春马水桔">
+                    <h3>名优特产：马水桔</h3>
+                    <p class="p-content">阳春马水桔，皮薄多汁，清甜化渣，国家地理标志产品。</p>
+                    <a href="food.html" class="seemore2-button">了解特产</a>
+                </div>
+                <div class="food-card">
+                    <img src="img/美食/美食3.jpg" alt="阳春春砂仁">
+                    <h3>特色菜肴：春砂仁入馔</h3>
+                    <p class="p-content">以春砂仁为调料烹制的菜肴，风味独特，具有食疗价值。</p>
+                    <a href="food.html" class="seemore2-button">品尝佳肴</a>
+                </div>
             </div>
-            <div>
-                <img src="img/ticket.png" alt="ticket">
-                <p style="font-size: 20px;margin-bottom: -15px;">票务信息</p>
-            </div>
-            <div>
-                <img src="img/phone.png" alt="phone">
-                <p style="font-size: 20px;margin-bottom: -15px;">常用电话</p>
-            </div>
-            <div>
-                <img src="img/map.png" alt="map">
-                <p style="font-size: 20px;margin-bottom: -15px;">景区地图</p>
-            </div>
-            <div>
-                <img src="img/traffic.png" alt="traffic">
-                <p style="font-size: 20px;margin-bottom: -15px;">周边交通</p>
-            </div>
-        </div>
-    </nav>
+        </section>
 
     <!-- 底部开始 -->
     <footer>
-        <div class="social-icons">
-            <a href="#"><img src="img/Tiktok.png" alt="Tiktok"></a>
-            <a href="#"><img src="img/Wechat.png" alt="Wechat"></a>
-            <a href="#"><img src="img/Weibo.png" alt="Weibo"></a>
+            <div class="social-icons">
+                <a href="#"><img src="img/Tiktok.png" alt="Tiktok"></a>
+                <a href="#"><img src="img/Wechat.png" alt="Wechat"></a>
+                <a href="#"><img src="img/Weibo.png" alt="Weibo"></a>
+            </div>
+            <p> 阳江市阳春市南新大道6号<br>旅客服务电话：(+86)955231; 旅客咨询邮箱:lb@ch.com <br>合作邮箱：yangchun@travel.com</p>
+            <p style="color: #aaa; font-size:0.85rem;">&copy; 2024 阳春文旅 (Yangchun Travel) 保留所有权利。</p>
         </div>
-        <p> 阳江市阳春市南新大道6号<br>旅客服务电话：(+86)955231; 旅客咨询邮箱:lb@ch.com <br>合作邮箱：yangchun@travel.com</p>
-        <p style="color: #7f7f7f;">&copy; 2024 阳春文旅(Yangchun Travel) 保留所有权利。</p>
     </footer>
 
     <script>
@@ -423,7 +583,46 @@
             setInterval(function() {
                 changeSlide(1);
             }, 5000);
+
+            // 导航栏滚动控制
+            let lastScrollTop = 0;
+            const header = document.querySelector('header');
+            const delta = 5;
+            let didScroll = false;
+
+            window.addEventListener('scroll', function() {
+                didScroll = true;
+            });
+
+            setInterval(function() {
+                if (didScroll) {
+                    hasScrolled();
+                    didScroll = false;
+                }
+            }, 250);
+
+            function hasScrolled() {
+                const st = window.pageYOffset;
+                
+                // 确保滚动超过 delta
+                if(Math.abs(lastScrollTop - st) <= delta)
+                    return;
+                
+                // 向下滚动
+                if (st > lastScrollTop && st > header.offsetHeight){
+                    header.classList.remove('nav-down');
+                    header.classList.add('nav-up');
+                } else {
+                    // 向上滚动
+                    if(st + window.innerHeight < document.documentElement.scrollHeight) {
+                        header.classList.remove('nav-up');
+                        header.classList.add('nav-down');
+                    }
+                }
+                
+                lastScrollTop = st;
+            }
         });
-        </script>        
+    </script>        
 </body>
 </html>
